@@ -1,0 +1,66 @@
+{% extends 'real_estate/main/index.html' %}
+{% load i18n %}
+{% load static %}
+{% block titlePage %}{% translate 'Riyadh Oasis |' %} {{ getOneProperty.title_property }} {% endblock %}
+{% block content %}
+
+    <!-- Header Start -->
+    <div class="container-fluid header bg-white p-1">
+        <div class="row g-0 align-items-center flex-column-reverse flex-md-row" style="margin-top: 120px;">
+            <div class="col-md-6">
+                <h1>{{ getOneProperty.title_property }}</h1>
+                <table class="table">
+                    <tbody>
+                    <tr>
+                        <th scope="row">{% translate 'Country' %}</th>
+                        <td>{{ getOneProperty.country_property }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'City' %}</th>
+                        <td>{{ getOneProperty.city_property }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'Property Type' %}</th>
+                        <td>{{ getOneProperty.property_type }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'Size' %}</th>
+                        <td>{{ getOneProperty.size_property }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'Beds ' %}</th>
+                        <td>{{ getOneProperty.beds_property }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'Bath' %}</th>
+                        <td>{{ getOneProperty.bath_property }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'Price' %}</th>
+                        <td>{{ getOneProperty.price_property }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">{% translate 'Description' %}</th>
+                        <td>{{ getOneProperty.location_property }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-md-6 animated fadeIn" dir="ltr">
+                <div class="owl-carousel header-carousel">
+                    {% for getAllImage in getAllImagesProperty %}
+                        <div class="owl-carousel-item">
+                            <img class="" src="{{ getAllImage.images_property.url }} " width="100" height="550" alt="">
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <div class="row">
+
+    </div>
+
+{% endblock %}

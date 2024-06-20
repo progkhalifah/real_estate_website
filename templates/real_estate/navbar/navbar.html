@@ -1,0 +1,71 @@
+{% load i18n %}
+{% load static %}
+<!-- Spinner Start -->
+<div id="spinner"
+     class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+    <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+        <span class="sr-only">{% translate 'Loading...' %}</span>
+    </div>
+</div>
+<!-- Spinner End -->
+
+
+<!-- Navbar Start -->
+<div class="container-fluid nav-bar bg-transparent" dir="ltr">
+    <nav class="navbar navbar-expand-lg nav-bar-background-color navbar-light py-0 px-4">
+        <a href="{% url 'real_estate:main_home' %}" class="navbar-brand d-flex align-items-center text-center">
+            <div class="p-2 ">
+                <img class="img-fluid" src="{% static 'assets/img/logo/logo_riyadh_oasis.png' %} " alt="Icon"
+                     style="width: 90px; height: 90px;">
+            </div>
+            <h1 class="m-0 text-white">{% translate 'Riyadh Oasis' %}</h1>
+        </a>
+        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto">
+                <a href="{% url 'real_estate:main_home' %}" class="nav-item nav-link active">{% translate 'Home' %}</a>
+                <a href="#about" class="nav-item nav-link">{% translate 'About' %}</a>
+                <!--<div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Property</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a href="property-list.html" class="dropdown-item">Property List</a>
+                        <a href="property-type.html" class="dropdown-item">Property Type</a>
+                        <a href="property-agent.html" class="dropdown-item">Property Agent</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                    <div class="dropdown-menu rounded-0 m-0">
+                        <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                        <a href="404.html" class="dropdown-item">404 Error</a>
+                    </div>
+                </div>-->
+                <a href="#contact" class="nav-item nav-link">{% translate 'Contact' %}</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link bi bi-globe" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                         {% get_current_language as LANGUAGE_CODE %}
+                    {% get_available_languages as LANGUAGES %}
+                    {% get_language_info_list for LANGUAGES as languages %}
+                        {% for lang in languages %}
+                            <li>
+                                <a style="font-size: 20px;" class="dropdown-item text-black fw-bold"
+                                   href="/{{ lang.code }}/">
+                                    {{ lang.name_local }}
+                                </a>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </li>
+
+            </div>
+            <a href="#property_list" class="btn btn-background-color-gold px-3 d-none d-lg-flex">{% translate 'Show Property List' %}</a>
+        </div>
+    </nav>
+</div>
+<!-- Navbar End -->
